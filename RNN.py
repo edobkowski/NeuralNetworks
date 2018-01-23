@@ -18,8 +18,8 @@ training_set_scaled = sc.fit_transform(training_set)
 
 X_train = []
 y_train = []
-for i in range(60, 1258):
-    X_train.append(training_set_scaled[i-60:i, 0])
+for i in range(120, 1258):
+    X_train.append(training_set_scaled[i-120:i, 0])
     y_train.append(training_set_scaled[i, 0])
 X_train, y_train = np.array(X_train), np.array(y_train)
 
@@ -49,12 +49,12 @@ dataset_test = pd.read_csv('Google_Stock_Price_Test.csv')
 real_stock_price = dataset_test.iloc[:, 1:2].values
 
 dataset_total = pd.concat((dataset_train['Open'], dataset_test['Open']), axis = 0)
-inputs = dataset_total[len(dataset_total) - len(dataset_test) - 60:].values
+inputs = dataset_total[len(dataset_total) - len(dataset_test) - 120:].values
 inputs = inputs.reshape(-1,1)
 inputs = sc.transform(inputs)
 X_test = []
-for i in range(60, 80):
-    X_test.append(inputs[i-60:i, 0])
+for i in range(120, 80):
+    X_test.append(inputs[i-120:i, 0])
 X_test = np.array(X_test)
 X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
 predicted_stock_price = regressor.predict(X_test)
