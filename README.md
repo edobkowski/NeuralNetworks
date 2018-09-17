@@ -1,5 +1,4 @@
-# NeuralNetworks
-Specyfikacja programu Neuro-Predictor
+# Specyfikacja programu Neuro-Predictor
 
 ### 1. Wprowadzenie
 
